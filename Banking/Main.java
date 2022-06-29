@@ -1,30 +1,26 @@
-import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        final int TOTAL_ACCOUNT_SUPPLY = 10000;
         Scanner scanner = new Scanner(System.in);
         int userChoice;
-        boolean areCredentialsValid;
-        Account[] accounts = new Account[TOTAL_ACCOUNT_SUPPLY];
-        int pin = 0;
+        HashMap<Long, Integer> accounts2 = new HashMap<Long, Integer>();
         int accountIdentifier = 493832089;
-        int initialAccountIdentifier = 493832089;
         do {
             showMainMenu();
             userChoice = scanner.nextInt();
             scanner.nextLine();
             switch (userChoice) {
                 case 1:
-                    accounts[accountIdentifier - initialAccountIdentifier] = createAnAccount(accountIdentifier);
+                    Account newAccount = createAnAccount(accountIdentifier);
+                    accounts2.put(newAccount.getCreditCardNumber(), newAccount.getPin());
                     accountIdentifier++;
-                    pin = 6826;
                     break;
                 case 2:
-                    areCredentialsValid = loginValidator(accounts);
-                    if (areCredentialsValid) {
+                    if (loginValidator(accounts2)) {
                         logInAccount();
                     } else System.out.println("Wrong card number or PIN!\n");
                     break;
@@ -84,7 +80,7 @@ public class Main {
         return controlNumber;
     }
 
-    private static boolean loginValidator(Account[] accounts) {
+    private static boolean loginValidator(HashMap<Long, Integer> accounts) {
 
         boolean areCredentialsValid = false;
         Scanner scanner = new Scanner(System.in);
@@ -93,10 +89,12 @@ public class Main {
         System.out.println("Enter your PIN:");
         int userInputPin = scanner.nextInt();
         scanner.nextLine();
-        for (int i = 0; i < accounts.length; i++) {
-            if (accounts[i].getCreditCardNumber() == userInputCardNumber && accounts[i].getPin() == userInputPin)
+        for (Map.Entry<Long, Integer> account : accounts.entrySet()) {
+            if (account.getKey() == userInputCardNumber && account.getValue().intValue() == userInputPin) {
                 areCredentialsValid = true;
-            else areCredentialsValid = false;
+                break;
+
+            } else areCredentialsValid = false;
         }
         return areCredentialsValid;
     }
