@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int userChoice;
-        HashMap<Long, Integer> accounts2 = new HashMap<Long, Integer>();
+        HashMap<Long, Integer> accounts = new HashMap<Long, Integer>();
         int accountIdentifier = 493832089;
         do {
             showMainMenu();
@@ -16,11 +16,11 @@ public class Main {
             switch (userChoice) {
                 case 1:
                     Account newAccount = createAnAccount(accountIdentifier);
-                    accounts2.put(newAccount.getCreditCardNumber(), newAccount.getPin());
+                    accounts.put(newAccount.getCreditCardNumber(), newAccount.getPin());
                     accountIdentifier++;
                     break;
                 case 2:
-                    if (loginValidator(accounts2)) {
+                    if (loginValidator(accounts)) {
                         logInAccount();
                     } else System.out.println("Wrong card number or PIN!\n");
                     break;
