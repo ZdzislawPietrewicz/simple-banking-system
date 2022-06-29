@@ -18,7 +18,7 @@ public class Main {
             scanner.nextLine();
             switch (userChoice) {
                 case 1:
-                    accounts[accountIdentifier-initialAccountIdentifier] = createAnAccount(accountIdentifier);
+                    accounts[accountIdentifier - initialAccountIdentifier] = createAnAccount(accountIdentifier);
                     accountIdentifier++;
                     pin = 6826;
                     break;
@@ -45,9 +45,9 @@ public class Main {
     private static Account createAnAccount(int accountIdentifier) {
         int bankIdentificationNumber = 400000;
         System.out.println("");
-        BigInteger creditCardNumberWithoutCheckDigit = new BigInteger(String.valueOf(bankIdentificationNumber) + String.valueOf(accountIdentifier));
+        long creditCardNumberWithoutCheckDigit = Long.valueOf(String.valueOf(bankIdentificationNumber) + String.valueOf(accountIdentifier));
         int creditCardCheckDigit = createCreditCardNumber(creditCardNumberWithoutCheckDigit);
-        BigInteger customerCreditCardNumberWithCheckDigit = creditCardNumberWithoutCheckDigit.multiply(BigInteger.TEN).add(BigInteger.valueOf(creditCardCheckDigit));
+        long customerCreditCardNumberWithCheckDigit = creditCardNumberWithoutCheckDigit * 10 + creditCardCheckDigit;
         Account account = new Account();
         account.setAccountIdentifier(accountIdentifier);
         account.setPin(createPin());
@@ -63,15 +63,15 @@ public class Main {
 
     private static int createPin() {
         Random random = new Random();
-        return random.nextInt(9999)+1;
+        return random.nextInt(9999) + 1;
     }
 
-    private static int createCreditCardNumber(BigInteger customerCreditCardNumber) {
-        int[] creditCardDigits = new int[15];
+    private static int createCreditCardNumber(long customerCreditCardNumber) {
+        long[] creditCardDigits = new long[15];
         int controlSum = 0;
         for (int i = 14; i >= 0; i--) {
-            creditCardDigits[i] = customerCreditCardNumber.remainder(BigInteger.TEN).intValue();
-            customerCreditCardNumber = customerCreditCardNumber.divide(BigInteger.valueOf(10));
+            creditCardDigits[i] = customerCreditCardNumber % 10;
+            customerCreditCardNumber = customerCreditCardNumber / 10;
             if (i % 2 == 0) {
                 creditCardDigits[i] *= 2;
                 if (creditCardDigits[i] > 9) {
@@ -84,19 +84,19 @@ public class Main {
         return controlNumber;
     }
 
-    private static boolean loginValidator(Account [] accounts) {
+    private static boolean loginValidator(Account[] accounts) {
 
-        boolean areCredentialsValid=false;
+        boolean areCredentialsValid = false;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your card number");
-        BigInteger userInputCardNumber = scanner.nextBigInteger();
+        long userInputCardNumber = scanner.nextLong();
         System.out.println("Enter your PIN:");
         int userInputPin = scanner.nextInt();
         scanner.nextLine();
         for (int i = 0; i < accounts.length; i++) {
-            if(accounts[i].getCreditCardNumber()==userInputCardNumber && accounts[i].getPin()==userInputPin)
-                areCredentialsValid=true;
-            else areCredentialsValid=false;
+            if (accounts[i].getCreditCardNumber() == userInputCardNumber && accounts[i].getPin() == userInputPin)
+                areCredentialsValid = true;
+            else areCredentialsValid = false;
         }
         return areCredentialsValid;
     }

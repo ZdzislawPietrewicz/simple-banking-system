@@ -3,10 +3,10 @@ import java.math.BigInteger;
 public class Account {
     private int accountIdentifier;
     private int pin;
-    private BigInteger creditCardNumber;
+    private long creditCardNumber;
 
 
-    public Account(int accountIdentifier, int pin, BigInteger creditCardNumber) {
+    public Account(int accountIdentifier, int pin, long creditCardNumber) {
         this.accountIdentifier = accountIdentifier;
         this.pin = pin;
         this.creditCardNumber = creditCardNumber;
@@ -31,11 +31,11 @@ public class Account {
         this.pin = pin;
     }
 
-    public BigInteger getCreditCardNumber() {
+    public long getCreditCardNumber() {
         return creditCardNumber;
     }
 
-    public void setCreditCardNumber(BigInteger creditCardNumber) {
+    public void setCreditCardNumber(long creditCardNumber) {
         this.creditCardNumber = creditCardNumber;
     }
 }
