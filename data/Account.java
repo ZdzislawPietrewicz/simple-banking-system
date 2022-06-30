@@ -5,5 +5,24 @@ public class Account {
     private CreditCard creditCard;
 
 
+    public Account(int accountIdentifier, CreditCard creditCard) {
+        this.accountIdentifier = accountIdentifier;
+        this.creditCard = creditCard;
+    }
 
+    public int getAccountIdentifier() {
+        return accountIdentifier;
+    }
+
+    public void setAccountIdentifier(int accountIdentifier) {
+        this.accountIdentifier = accountIdentifier;
+    }
+
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
+    }
 }
