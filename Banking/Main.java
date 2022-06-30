@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int userChoice;
-        HashMap<Long, Integer> accounts = new HashMap<Long, Integer>();
+        HashMap<String, String> accounts = new HashMap<String, String>();
         int accountIdentifier = 493832089;
         do {
             showMainMenu();
@@ -15,12 +15,12 @@ public class Main {
             scanner.nextLine();
             switch (userChoice) {
                 case 1:
-                    AccountService accountService = new AccountService();
-                    Account newAccount = createAnAccount(accountIdentifier);
+                    Account newAccount = AccountService.createAnAccount(accountIdentifier);
+                    accounts.put(newAccount.getCreditCard().getCreditCardNumber(), newAccount.getCreditCard().getPin());
                     accountIdentifier++;
                     break;
                 case 2:
-                    if (loginValidator(accounts)) {
+                    if (LoginValidationService.loginValidator(accounts)) {
                         logInAccount();
                     } else System.out.println("Wrong card number or PIN!\n");
                     break;
@@ -39,24 +39,7 @@ public class Main {
     }
 
 
-    private static boolean loginValidator(HashMap<Long, Integer> accounts) {
 
-        boolean areCredentialsValid = false;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your card number");
-        long userInputCardNumber = scanner.nextLong();
-        System.out.println("Enter your PIN:");
-        int userInputPin = scanner.nextInt();
-        scanner.nextLine();
-        for (Map.Entry<Long, Integer> account : accounts.entrySet()) {
-            if (account.getKey() == userInputCardNumber && account.getValue().intValue() == userInputPin) {
-                areCredentialsValid = true;
-                break;
-
-            } else areCredentialsValid = false;
-        }
-        return areCredentialsValid;
-    }
 
     private static void logInAccount() {
         System.out.println("You have successfully logged in!");

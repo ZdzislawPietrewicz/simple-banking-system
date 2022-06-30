@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class AccountService {
     
-    private static Account createAnAccount(int accountIdentifier) {
+    public static Account createAnAccount(int accountIdentifier) {
         final int BANK_IDENTIFICATION_NUMBER = 400000;
         final int INITIAL_BALANCE=0;
         System.out.println("");
@@ -17,13 +17,13 @@ public class AccountService {
         System.out.println("Your card PIN:");
         System.out.println(newAccount.getCreditCard().getPin());
         System.out.println("");
-        return account;
+        return newAccount;
     }
     private static String createPin() {
         Random random = new Random();
         String pin="";
         for (int i = 0; i < 4; i++) {
-            pin.concat(String.valueOf(random.nextInt(9) + 1);
+            pin.concat(String.valueOf(random.nextInt(9) + 1));
         }
         return pin;
     }
