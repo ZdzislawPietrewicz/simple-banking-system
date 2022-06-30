@@ -1,7 +1,8 @@
-package com.zdzislawpietrewicz.simplebankingsystem;
+package com.zdzislawpietrewicz.simplebankingsystem.banking;
 
 import com.zdzislawpietrewicz.simplebankingsystem.data.Account;
 import com.zdzislawpietrewicz.simplebankingsystem.service.AccountService;
+import com.zdzislawpietrewicz.simplebankingsystem.service.DatabaseConnectionService;
 import com.zdzislawpietrewicz.simplebankingsystem.service.LoginValidationService;
 import com.zdzislawpietrewicz.simplebankingsystem.service.MenuService;
 
@@ -15,6 +16,7 @@ public class Main {
         int userChoice;
         HashMap<String, String> accounts = new HashMap<String, String>();
         int accountIdentifier = 493832089;
+        DatabaseConnectionService databaseConnectionService = new DatabaseConnectionService();
         do {
            MenuService.mainMenu();
             userChoice = scanner.nextInt();
