@@ -10,21 +10,22 @@ public class AccountService {
         int creditCardCheckDigit = createCreditCardNumber(creditCardNumberWithoutCheckDigit);
         String creditCardNumberWithCheckDigit = String.valueOf(creditCardNumberWithoutCheckDigit * 10 + creditCardCheckDigit);
         CreditCard newCreditCard = new CreditCard(creditCardNumberWithCheckDigit, createPin(),INITIAL_BALANCE);
-        Account account = new Account();
-        account.setAccountIdentifier(accountIdentifier);
-        account.setPin(createPin());
-        account.setCreditCardNumber(creditCardNumberWithCheckDigit);
+        Account newAccount = new Account(accountIdentifier, newCreditCard);
         System.out.println("Your card has been created");
         System.out.println("Your card number:");
-        System.out.println(bankIdentificationNumber + "" + accountIdentifier + "" + creditCardCheckDigit);
+        System.out.println(BANK_IDENTIFICATION_NUMBER + "" + accountIdentifier + "" + creditCardCheckDigit);
         System.out.println("Your card PIN:");
-        System.out.println(account.getPin());
+        System.out.println(newAccount.getCreditCard().getPin());
         System.out.println("");
         return account;
     }
-    private static int createPin() {
+    private static String createPin() {
         Random random = new Random();
-        return random.nextInt(9999) + 1;
+        String pin="";
+        for (int i = 0; i < 4; i++) {
+            pin.concat(String.valueOf(random.nextInt(9) + 1);
+        }
+        return pin;
     }
 
     private static int createCreditCardNumber(long customerCreditCardNumber) {

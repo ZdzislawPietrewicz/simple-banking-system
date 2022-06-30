@@ -15,8 +15,8 @@ public class Main {
             scanner.nextLine();
             switch (userChoice) {
                 case 1:
+                    AccountService accountService = new AccountService();
                     Account newAccount = createAnAccount(accountIdentifier);
-                    accounts.put(newAccount.getCreditCardNumber(), newAccount.getPin());
                     accountIdentifier++;
                     break;
                 case 2:
