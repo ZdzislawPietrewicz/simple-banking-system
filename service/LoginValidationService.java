@@ -8,9 +8,9 @@ public class LoginValidationService {
         boolean areCredentialsValid = false;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your card number");
-        long userInputCardNumber = scanner.nextLong();
+        String userInputCardNumber = scanner.nextLine();
         System.out.println("Enter your PIN:");
-        int userInputPin = scanner.nextInt();
+        String userInputPin = scanner.nextLine();
         scanner.nextLine();
         for (Map.Entry<String, String> account : accounts.entrySet()) {
             if (account.getKey().equals(userInputCardNumber) && account.getValue().equals( userInputPin)) {

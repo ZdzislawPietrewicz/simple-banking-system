@@ -23,7 +23,7 @@ public class AccountService {
         Random random = new Random();
         String pin="";
         for (int i = 0; i < 4; i++) {
-            pin.concat(String.valueOf(random.nextInt(9) + 1));
+            pin+=(String.valueOf(random.nextInt(9) + 1));
         }
         return pin;
     }
