@@ -1,4 +1,4 @@
-import java.math.BigInteger;
+package com.zdzislawpietrewicz.simplebankingsystem.data;
 
 public class Account {
     private int accountIdentifier;

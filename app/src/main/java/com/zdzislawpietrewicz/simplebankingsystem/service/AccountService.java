@@ -1,3 +1,8 @@
+package com.zdzislawpietrewicz.simplebankingsystem.service;
+
+import com.zdzislawpietrewicz.simplebankingsystem.data.Account;
+import com.zdzislawpietrewicz.simplebankingsystem.data.CreditCard;
+
 import java.util.Random;
 
 public class AccountService {

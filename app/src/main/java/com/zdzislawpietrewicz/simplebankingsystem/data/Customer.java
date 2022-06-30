@@ -1,3 +1,5 @@
+package com.zdzislawpietrewicz.simplebankingsystem.data;
+
 public class Customer {
     private Account account;
     private Address address;

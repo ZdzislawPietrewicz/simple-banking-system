@@ -1,3 +1,5 @@
+package com.zdzislawpietrewicz.simplebankingsystem.data;
+
 public class CreditCard {
     private String creditCardNumber;
     private String pin;

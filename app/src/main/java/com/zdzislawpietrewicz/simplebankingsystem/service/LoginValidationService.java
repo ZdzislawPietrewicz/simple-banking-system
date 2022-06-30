@@ -1,3 +1,6 @@
+package com.zdzislawpietrewicz.simplebankingsystem.service;
+
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -11,11 +14,11 @@ public class LoginValidationService {
         String userInputCardNumber = scanner.nextLine();
         System.out.println("Enter your PIN:");
         String userInputPin = scanner.nextLine();
-        scanner.nextLine();
         for (Map.Entry<String, String> account : accounts.entrySet()) {
             if (account.getKey().equals(userInputCardNumber) && account.getValue().equals( userInputPin)) {
                 areCredentialsValid = true;
-                break;
+                System.out.println("You have successfully logged in!");
+                System.out.println(" ");
 
             } else areCredentialsValid = false;
         }

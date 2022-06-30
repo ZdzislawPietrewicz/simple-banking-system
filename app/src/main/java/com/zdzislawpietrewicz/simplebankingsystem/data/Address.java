@@ -1,3 +1,5 @@
+package com.zdzislawpietrewicz.simplebankingsystem.data;
+
 public class Address {
     private String street;
     private int homeNumber;
