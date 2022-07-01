@@ -4,6 +4,7 @@ import com.zdzislawpietrewicz.simplebankingsystem.data.Account;
 import org.sqlite.SQLiteDataSource;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -41,6 +42,30 @@ public class DatabaseConnectionService {
             System.out.println(addToDatabaseQuery);
         }
     }
+
+    public static int assignAccountIdentifier() {
+        String query = "SELECT number FROM card";
+        String lastCreditCardNumber = "";
+        int accountIdentifier=0;
+        try (Connection connection = sqLiteDataSource.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query)) {
+            while (resultSet.next()) {
+                lastCreditCardNumber = resultSet.getString("number");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (!lastCreditCardNumber.equals("")) {
+            accountIdentifier = Integer.valueOf(lastCreditCardNumber.substring(6, 15)) + 1;
+        } else {
+            accountIdentifier = 493832089;
+        }
+        return accountIdentifier;
+
+    }
+
+
 }
 
 

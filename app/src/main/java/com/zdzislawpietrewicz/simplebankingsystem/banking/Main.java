@@ -15,18 +15,16 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int userChoice;
         HashMap<String, String> accounts = new HashMap<String, String>();
-        int accountIdentifier = 493832089;
         DatabaseConnectionService databaseConnectionService = new DatabaseConnectionService();
         do {
-           MenuService.mainMenu();
+            MenuService.mainMenu();
             userChoice = scanner.nextInt();
             scanner.nextLine();
             switch (userChoice) {
                 case 1:
-                    Account newAccount = AccountService.createAnAccount(accountIdentifier);
+                    Account newAccount = AccountService.createAnAccount();
                     databaseConnectionService.addAccountToDatabase(newAccount);
                     accounts.put(newAccount.getCreditCard().getCreditCardNumber(), newAccount.getCreditCard().getPin());
-                    accountIdentifier++;
                     break;
                 case 2:
                     if (LoginValidationService.loginValidator(accounts)) {
@@ -39,13 +37,6 @@ public class Main {
 
         } while (userChoice != 0);
     }
-
-
-
-
-
-
-
 
 
 }
