@@ -34,4 +34,6 @@ public class CreditCard {
     public void setBalance(int balance) {
         this.balance = balance;
     }
+
 }
+

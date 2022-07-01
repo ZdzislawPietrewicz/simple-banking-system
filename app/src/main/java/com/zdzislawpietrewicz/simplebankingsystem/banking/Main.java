@@ -24,6 +24,7 @@ public class Main {
             switch (userChoice) {
                 case 1:
                     Account newAccount = AccountService.createAnAccount(accountIdentifier);
+                    databaseConnectionService.addAccountToDatabase(newAccount);
                     accounts.put(newAccount.getCreditCard().getCreditCardNumber(), newAccount.getCreditCard().getPin());
                     accountIdentifier++;
                     break;
