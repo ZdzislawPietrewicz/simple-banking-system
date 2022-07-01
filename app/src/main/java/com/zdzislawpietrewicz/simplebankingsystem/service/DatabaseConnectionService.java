@@ -46,7 +46,7 @@ public class DatabaseConnectionService {
     public static int assignAccountIdentifier() {
         String query = "SELECT number FROM card";
         String lastCreditCardNumber = "";
-        int accountIdentifier=0;
+        int accountIdentifier = 0;
         try (Connection connection = sqLiteDataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
@@ -63,6 +63,29 @@ public class DatabaseConnectionService {
         }
         return accountIdentifier;
 
+    }
+
+    public static boolean checkCredentials(String userInputCreditCardNumber, String userInputCreditCardPin) {
+        String queryCredentials = "SELECT number, pin FROM card";
+        String creditCardNumber = "";
+        String creditCardPin = "";
+        boolean areCredentialsValid = false;
+        try (Connection connection = sqLiteDataSource.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(queryCredentials)) {
+            while (resultSet.next()) {
+                creditCardNumber = resultSet.getString("number");
+                if (creditCardNumber.equals(userInputCreditCardNumber)) {
+                    creditCardPin = resultSet.getString("pin");
+                    if (creditCardPin.equals(userInputCreditCardPin)) {
+                        areCredentialsValid = true;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return areCredentialsValid;
     }
 
 

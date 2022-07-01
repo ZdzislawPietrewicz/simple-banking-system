@@ -27,7 +27,7 @@ public class Main {
                     accounts.put(newAccount.getCreditCard().getCreditCardNumber(), newAccount.getCreditCard().getPin());
                     break;
                 case 2:
-                    if (LoginValidationService.loginValidator(accounts)) {
+                    if (LoginValidationService.loginValidator()) {
                         MenuService.loggedInMenu();
                     } else System.out.println("Wrong card number or PIN!\n");
                     break;
