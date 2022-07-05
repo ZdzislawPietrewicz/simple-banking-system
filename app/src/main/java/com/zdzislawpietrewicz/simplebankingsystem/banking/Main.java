@@ -19,7 +19,6 @@ public class Main {
         }
         Scanner scanner = new Scanner(System.in);
         int userChoice;
-        HashMap<String, String> accounts = new HashMap<String, String>();
         DatabaseConnectionService databaseConnectionService = new DatabaseConnectionService(fileNameWithDatabase);
         do {
             MenuService.mainMenu();
@@ -29,7 +28,6 @@ public class Main {
                 case 1:
                     Account newAccount = AccountService.createAnAccount();
                     databaseConnectionService.addAccountToDatabase(newAccount);
-                    accounts.put(newAccount.getCreditCard().getCreditCardNumber(), newAccount.getCreditCard().getPin());
                     break;
                 case 2:
                     if (LoginValidationService.loginValidator()) {
