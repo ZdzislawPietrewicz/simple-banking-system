@@ -1,13 +1,12 @@
 package com.zdzislawpietrewicz.simplebankingsystem.banking;
 
 import com.zdzislawpietrewicz.simplebankingsystem.data.Account;
-import com.zdzislawpietrewicz.simplebankingsystem.service.AccountService;
+import com.zdzislawpietrewicz.simplebankingsystem.service.AccountCreateService;
 import com.zdzislawpietrewicz.simplebankingsystem.service.DatabaseConnectionService;
 import com.zdzislawpietrewicz.simplebankingsystem.service.LoginValidationService;
 import com.zdzislawpietrewicz.simplebankingsystem.service.MenuService;
 
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -26,7 +25,7 @@ public class Main {
             scanner.nextLine();
             switch (userChoice) {
                 case 1:
-                    Account newAccount = AccountService.createAnAccount();
+                    Account newAccount = AccountCreateService.createAnAccount();
                     databaseConnectionService.addAccountToDatabase(newAccount);
                     break;
                 case 2:

@@ -5,7 +5,7 @@ import com.zdzislawpietrewicz.simplebankingsystem.data.CreditCard;
 
 import java.util.Random;
 
-public class AccountService {
+public class AccountCreateService {
 
     public static Account createAnAccount() {
         final int BANK_IDENTIFICATION_NUMBER = 400000;
