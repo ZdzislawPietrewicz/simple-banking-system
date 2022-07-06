@@ -17,13 +17,17 @@ public class AccountOperationsService {
             scanner.nextLine();
             switch (userChoice) {
                 case 1:
-                    int balance=DatabaseConnectionService.checkBalance(userCreditCardNumber);
+                    int balance = DatabaseConnectionService.checkBalance(userCreditCardNumber);
                     System.out.println("");
                     System.out.println("Balance: " + balance);
                     System.out.println("");
                     break;
                 case 2:
-
+                    System.out.println("Enter income:");
+                    int addIncome = scanner.nextInt();
+                    DatabaseConnectionService.addIncome(addIncome, userCreditCardNumber);
+                    System.out.println("Income was added!");
+                    break;
                 case 5:
                     System.out.println("");
                     System.out.println("You have successfully logged out!");

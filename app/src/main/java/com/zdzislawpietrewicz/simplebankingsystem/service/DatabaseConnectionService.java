@@ -92,20 +92,34 @@ public class DatabaseConnectionService {
     }
 
     public static int checkBalance(String userCreditCardNumber) {
-        int balance=0;
+        int balance = 0;
         String querySQL = "SELECT balance FROM card WHERE number = ?";
         try (Connection connection = sqLiteDataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(querySQL)) {
             preparedStatement.setString(1, userCreditCardNumber);
-            ResultSet resultSet=preparedStatement.executeQuery();
-            while (resultSet.next()){
-                balance=resultSet.getInt("balance");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                balance = resultSet.getInt("balance");
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return balance;
+
+    }
+
+    public static void addIncome(int addIncome, String userCreditCardNumber) {
+        String querySQL = "UPDATE card SET balance= balance + ? WHERE number=?";
+        try (Connection connection = sqLiteDataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(querySQL)) {
+            preparedStatement.setInt(1, addIncome);
+            preparedStatement.setString(2, userCreditCardNumber);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
