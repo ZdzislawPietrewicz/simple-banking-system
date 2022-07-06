@@ -1,15 +1,15 @@
 package com.zdzislawpietrewicz.simplebankingsystem.service;
 
 import com.zdzislawpietrewicz.simplebankingsystem.data.Account;
+import com.zdzislawpietrewicz.simplebankingsystem.data.CreditCard;
 import org.sqlite.SQLiteDataSource;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DatabaseConnectionService {
     private static SQLiteDataSource sqLiteDataSource;
+
+
 
    /* String urlToDatabase = "jdbc:sqlite:/Users/zdzislawpietrewicz/code/simple-banking-system/app/src/main/java/" +
             "com/zdzislawpietrewicz/simplebankingsystem/db/abc.db";*/
@@ -89,6 +89,24 @@ public class DatabaseConnectionService {
             e.printStackTrace();
         }
         return areCredentialsValid;
+    }
+
+    public static int checkBalance(String userCreditCardNumber) {
+        int balance=0;
+        String querySQL = "SELECT balance FROM card WHERE number = ?";
+        try (Connection connection = sqLiteDataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(querySQL)) {
+            preparedStatement.setString(1, userCreditCardNumber);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            while (resultSet.next()){
+                balance=resultSet.getInt("balance");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return balance;
+
     }
 
 

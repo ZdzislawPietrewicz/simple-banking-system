@@ -11,6 +11,11 @@ public class CreditCard {
         this.balance = balance;
     }
 
+    public CreditCard(String creditCardNumber, String pin) {
+        this.creditCardNumber = creditCardNumber;
+        this.pin = pin;
+    }
+
     public String getCreditCardNumber() {
         return creditCardNumber;
     }

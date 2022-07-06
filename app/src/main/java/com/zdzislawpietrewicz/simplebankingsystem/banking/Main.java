@@ -1,10 +1,7 @@
 package com.zdzislawpietrewicz.simplebankingsystem.banking;
 
 import com.zdzislawpietrewicz.simplebankingsystem.data.Account;
-import com.zdzislawpietrewicz.simplebankingsystem.service.AccountCreateService;
-import com.zdzislawpietrewicz.simplebankingsystem.service.DatabaseConnectionService;
-import com.zdzislawpietrewicz.simplebankingsystem.service.LoginValidationService;
-import com.zdzislawpietrewicz.simplebankingsystem.service.MenuService;
+import com.zdzislawpietrewicz.simplebankingsystem.service.*;
 
 
 import java.util.Scanner;
@@ -29,8 +26,9 @@ public class Main {
                     databaseConnectionService.addAccountToDatabase(newAccount);
                     break;
                 case 2:
-                    if (LoginValidationService.loginValidator()) {
-                        MenuService.loggedInMenu();
+                    String userCreditCardNumber=LoginValidationService.loginValidator();
+                    if (userCreditCardNumber!=null) {
+                        AccountOperationsService accountOperationsService = new AccountOperationsService(userCreditCardNumber);
                     } else System.out.println("Wrong card number or PIN!\n");
                     break;
                 default:

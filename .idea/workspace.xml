@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="244ee36d-e505-4b1d-a455-1f920b56c32f" name="Changes" comment="" />
+    <list default="true" id="244ee36d-e505-4b1d-a455-1f920b56c32f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/banking/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/banking/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/data/CreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/data/CreditCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/db/db.s3db" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/db/db.s3db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/AccountOperationsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/AccountOperationsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/DatabaseConnectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/DatabaseConnectionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/LoginValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/LoginValidationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/course-remote-info.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +144,8 @@
       <updated>1656944527249</updated>
       <workItem from="1656944529975" duration="4486000" />
       <workItem from="1656949232548" duration="2022000" />
-      <workItem from="1657006653817" duration="3128000" />
+      <workItem from="1657006653817" duration="5258000" />
+      <workItem from="1657108970003" duration="4026000" />
     </task>
     <servers />
   </component>
@@ -151,5 +162,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/LoginValidationService.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/AccountOperationsService.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
