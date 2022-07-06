@@ -28,6 +28,11 @@ public class AccountOperationsService {
                     DatabaseConnectionService.addIncome(addIncome, userCreditCardNumber);
                     System.out.println("Income was added!");
                     break;
+                case 4:
+                    DatabaseConnectionService.deleteAccount(userCreditCardNumber);
+                    userChoice=5; // go out to main menu
+                    break;
+
                 case 5:
                     System.out.println("");
                     System.out.println("You have successfully logged out!");

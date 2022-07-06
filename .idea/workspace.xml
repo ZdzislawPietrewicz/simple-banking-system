@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="244ee36d-e505-4b1d-a455-1f920b56c32f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/db/db.s3db" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/db/db.s3db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/AccountOperationsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/AccountOperationsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/DatabaseConnectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/DatabaseConnectionService.java" afterDir="false" />
     </list>
@@ -139,7 +140,7 @@
       <workItem from="1656944529975" duration="4486000" />
       <workItem from="1656949232548" duration="2022000" />
       <workItem from="1657006653817" duration="5258000" />
-      <workItem from="1657108970003" duration="4861000" />
+      <workItem from="1657108970003" duration="6328000" />
     </task>
     <servers />
   </component>
@@ -169,6 +170,11 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/AccountOperationsService.java</url>
           <line>19</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/DatabaseConnectionService.java</url>
+          <line>127</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

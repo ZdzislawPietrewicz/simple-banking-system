@@ -110,7 +110,7 @@ public class DatabaseConnectionService {
     }
 
     public static void addIncome(int addIncome, String userCreditCardNumber) {
-        String querySQL = "UPDATE card SET balance= balance + ? WHERE number=?";
+        String querySQL = "UPDATE card SET balance= balance + ? WHERE number = ?";
         try (Connection connection = sqLiteDataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(querySQL)) {
             preparedStatement.setInt(1, addIncome);
@@ -119,7 +119,18 @@ public class DatabaseConnectionService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
+    public static void deleteAccount(String userCreditCardNumber) {
+        String querySQL = "DELETE FROM card WHERE number = ?";
+        try(Connection connection=sqLiteDataSource.getConnection();
+        PreparedStatement preparedStatement=connection.prepareStatement(querySQL)){
+            preparedStatement.setString(1,userCreditCardNumber);
+            preparedStatement.executeUpdate();
+                System.out.println("The account has been closed!");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
 
     }
 
