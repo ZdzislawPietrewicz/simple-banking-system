@@ -123,15 +123,47 @@ public class DatabaseConnectionService {
 
     public static void deleteAccount(String userCreditCardNumber) {
         String querySQL = "DELETE FROM card WHERE number = ?";
-        try(Connection connection=sqLiteDataSource.getConnection();
-        PreparedStatement preparedStatement=connection.prepareStatement(querySQL)){
-            preparedStatement.setString(1,userCreditCardNumber);
+        try (Connection connection = sqLiteDataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(querySQL)) {
+            preparedStatement.setString(1, userCreditCardNumber);
             preparedStatement.executeUpdate();
-                System.out.println("The account has been closed!");
-        }catch (SQLException e){
+            System.out.println("The account has been closed!");
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public static boolean existCreditCardNumber(String creditCardNumber) {
+        String querySQL = "SELECT * FROM card WHERE NUMBER = ?";
+        boolean existAccount = false;
+        try (Connection connection = sqLiteDataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(querySQL)) {
+            preparedStatement.setString(1, creditCardNumber);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            if(resultSet.next()) existAccount=true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return existAccount;
+    }
+
+    public static void transferMoney(String creditCardNumber, String recipientCC, int amount) {
+        String querySQL = "UPDATE card SET balance = balance - ? WHERE number=?";
+        try (Connection connection = sqLiteDataSource.getConnection();
+             PreparedStatement substractMoney = connection.prepareStatement(querySQL);
+             PreparedStatement addMoney = connection.prepareStatement(querySQL)) {
+            connection.setAutoCommit(false);
+            substractMoney.setInt(1, amount);
+            substractMoney.setString(2, creditCardNumber);
+            substractMoney.executeUpdate();
+            addMoney.setInt(1, -amount);
+            addMoney.setString(2, recipientCC);
+            addMoney.executeUpdate();
+            connection.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

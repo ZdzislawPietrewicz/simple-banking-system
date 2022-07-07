@@ -15,6 +15,9 @@ public class LoginValidationService {
 
         boolean areCredentialsValid = DatabaseConnectionService.checkCredentials(userInputCardNumber, userInputPin);
         if (areCredentialsValid) {
+            System.out.println("");
+            System.out.println("You have successfully logged in!");
+            System.out.println("");
             return userInputCardNumber;
 
         } else return null;

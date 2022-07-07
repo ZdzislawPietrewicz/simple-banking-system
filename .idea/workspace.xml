@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="244ee36d-e505-4b1d-a455-1f920b56c32f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageData" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageData" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageRecordIndex" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageRecordIndex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/out/production/classes/com/zdzislawpietrewicz/simplebankingsystem/service/DatabaseConnectionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/out/production/classes/com/zdzislawpietrewicz/simplebankingsystem/service/DatabaseConnectionService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/db/db.s3db" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/db/db.s3db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/AccountCreateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/AccountCreateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/AccountOperationsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/AccountOperationsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/DatabaseConnectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/DatabaseConnectionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/LoginValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/LoginValidationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/course-remote-info.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +76,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Simple Banking System/task/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Simple Banking System/task/src/banking" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -79,9 +85,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Simple Banking System/task/src" />
       <recent name="$PROJECT_DIR$/Simple Banking System/task/src/banking" />
+      <recent name="$PROJECT_DIR$/Simple Banking System/task/src" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="banking" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -140,7 +149,8 @@
       <workItem from="1656944529975" duration="4486000" />
       <workItem from="1656949232548" duration="2022000" />
       <workItem from="1657006653817" duration="5258000" />
-      <workItem from="1657108970003" duration="6328000" />
+      <workItem from="1657108970003" duration="13591000" />
+      <workItem from="1657176642821" duration="29000" />
     </task>
     <servers />
   </component>
@@ -162,19 +172,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/LoginValidationService.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/AccountOperationsService.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/zdzislawpietrewicz/simplebankingsystem/service/DatabaseConnectionService.java</url>
-          <line>127</line>
-          <option name="timeStamp" value="3" />
+          <line>142</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

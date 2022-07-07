@@ -13,7 +13,7 @@ public class AccountCreateService {
         int accountIdentifier = DatabaseConnectionService.assignAccountIdentifier();
         System.out.println("");
         long creditCardNumberWithoutCheckDigit = Long.valueOf(String.valueOf(BANK_IDENTIFICATION_NUMBER) + String.valueOf(accountIdentifier));
-        int creditCardCheckDigit = createCreditCardNumber(creditCardNumberWithoutCheckDigit);
+        int creditCardCheckDigit = createOrCheckCreditCardNumber(creditCardNumberWithoutCheckDigit);
         String creditCardNumberWithCheckDigit = String.valueOf(creditCardNumberWithoutCheckDigit * 10 + creditCardCheckDigit);
         CreditCard newCreditCard = new CreditCard(creditCardNumberWithCheckDigit, createPin(), INITIAL_BALANCE);
         Account newAccount = new Account(accountIdentifier, newCreditCard);
@@ -35,10 +35,11 @@ public class AccountCreateService {
         return pin;
     }
 
-    private static int createCreditCardNumber(long customerCreditCardNumber) {
+    public static int createOrCheckCreditCardNumber(long customerCreditCardNumber) {
         long[] creditCardDigits = new long[15];
         int controlSum = 0;
         for (int i = 14; i >= 0; i--) {
+
             creditCardDigits[i] = customerCreditCardNumber % 10;
             customerCreditCardNumber = customerCreditCardNumber / 10;
             if (i % 2 == 0) {
